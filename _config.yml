@@ -9,13 +9,13 @@ relative_permalinks: true
 # Setup
 title:            Chia-Hsun's Blog 
 tagline:          'A Jekyll theme'
-description:      ''
+description:      'Website test'
 url:              http://chiahsun.github.io
 baseurl:          /
 
 author:
   name:           'Chiahsun'
-  url:            
+  url:            http://chiahsun.github.io
 
 paginate:         5
 
