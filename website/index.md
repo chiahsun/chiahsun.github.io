@@ -1,15 +1,14 @@
 ---
 layout: page
-title: website 
+title: Website
+text: Here talks about how this site is built.
 ---
 
-Here talks about how this site is built.
-
-<br>
 
 ## Abourt jekyll and hyde
-<br>
-This is a website(blog) create by [jekyll] (https://github.com/barryclark/jekyll-now) using the theme - [hyde] (https://github.com/poole/hyde).
+
+
+This is a website(blog) create by [jekyll](https://github.com/barryclark/jekyll-now) using the theme - [hyde](https://github.com/poole/hyde). However, I want to test Bootstrap, so large part of them is replaced by Bootstrap.
 
 
 
@@ -19,6 +18,8 @@ This is a website(blog) create by [jekyll] (https://github.com/barryclark/jekyll
 
 Change the markdown parsing engine from _redcarpet_ to _kramdown_.
 
+> [GitHub Pages will _only_ support kramdown.](https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0)
+
 ~~~
 markdown:         redcarpet
 ~~~
@@ -27,7 +28,9 @@ to
 
 ~~~
 markdown:         kramdown
-
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 ~~~
 
 Be sure to `gem install kramdown rouge` if you want to run it locally.
@@ -87,6 +90,9 @@ title: title to display
 * [How to create page @ jekyllrg] (http://jekyllrb.com/docs/pages/)
 
 
+## [Liguid for Designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
+
+=> the engine behind Jekyll
 
 ### Reference
 
