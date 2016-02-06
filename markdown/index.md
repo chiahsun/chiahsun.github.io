@@ -6,19 +6,28 @@ title: markdown
 ## Introduction
 
 
-<br> Markdown is one of the markup languages that is simple but enriched to use. 
+<br> Markdown is one of the markup languages that is simple but enriched to use.
+
+Use [Git Pages](https://pages.github.com/), it is preferable to switch to [kramdown](http://kramdown.gettalong.org/).
 
 You can go through the [markdown tutorial] (http://markdowntutorial.com/) to understand the simplicty of it.
 
+In this website, _kramdown_ is used since it is hosed on Git Pages.
+
+Below, we will have two versions.
+
+1. markdown
+
+2. kramdwon
+
 ---
 
-#### Create fenced code block
+### Create fenced code block (markdown)
 
 
 \`\`\` <br>
 Here is the fenced code block<br>
 \`\`\`
-
 
 ```
 Here is the fenced code block
@@ -26,7 +35,22 @@ Here is the fenced code block
 
 ---
 
-#### Sytax highlighting for code
+### Create fenced code block (kramdown)
+
+~~~~~
+~~~
+Here is the fenced code block for kramdown
+~~~
+~~~~~
+
+~~~
+Here is the fenced code block for kramdown
+~~~
+
+
+---
+
+### Sytax highlighting for code (markdown)
 
 \`\`\`python<br>
 def hello_word():<br>
@@ -38,6 +62,28 @@ def hello_word():<br>
 def hello_word():
     print("Hello, world!");
 ```
+
+---
+
+### Sytax highlighting for code (kramdown)
+
+~~~~~
+~~~ python
+def hello_word():
+    print("Hello, world!");
+~~~
+~~~~~
+
+~~~ python
+def hello_word():
+    print("Hello, world!");
+~~~
+
+
+{% highlight python %}
+def hello_word():
+    print("Hello, world!");
+{% endhighlight %}
 
 ---
 

@@ -1,9 +1,15 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# highlighter: rouge
+# highlighter:      pygments
 
 # Permalinks
-permalink:        pretty
+# permalink:        pretty
 
 # Setup
 title:            Chia-Hsun's Blog 

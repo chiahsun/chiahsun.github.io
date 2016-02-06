@@ -15,7 +15,36 @@ This is a website(blog) create by [jekyll] (https://github.com/barryclark/jekyll
 
 ---
 
+## Configurations
 
+Change the markdown parsing engine from _redcarpet_ to _kramdown_.
+
+~~~
+markdown:         redcarpet
+~~~
+
+to
+
+~~~
+markdown:         kramdown
+
+~~~
+
+Be sure to `gem install kramdown rouge` if you want to run it locally.
+
+### Reference
+
+* [Syntax Highlighting in Jekyll With Rouge](https://sacha.me/articles/jekyll-rouge/)
+
+
+
+## Run jekyll
+
+```
+jekyll serve
+```
+
+Then, you can open the browser to _http://127.0.0.1:4000/_
 
 ## Create page
 
