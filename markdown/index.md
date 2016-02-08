@@ -8,7 +8,7 @@ title: markdown
 
 <br> Markdown is one of the markup languages that is simple but enriched to use.
 
-Use [Git Pages](https://pages.github.com/), it is preferable to switch to [kramdown](http://kramdown.gettalong.org/).
+Use [GitHub Pages](https://pages.github.com/), it is preferable to switch to [kramdown](http://kramdown.gettalong.org/).
 
 You can go through the [markdown tutorial] (http://markdowntutorial.com/) to understand the simplicty of it.
 
@@ -103,7 +103,7 @@ def hello_word():
 
 ---
 
-#### Display image
+### Display image
 
 ```
 ![Image on Wiki]  (https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg)
@@ -123,12 +123,12 @@ def hello_word():
 
 ![Image on Wiki](https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg)
 
-<p class="bg-info"><img src="http://findicons.com/files/icons/1676/primo/48/warning_blue.png"></span>No space between ] and ( </p>
+<div class="alert-info"> <p><img src="http://findicons.com/files/icons/1676/primo/48/warning_blue.png">No space between ] and ( </p> </div>
 
 ---
 
 
-#### Create link (markdown)
+### Create link (markdown)
 
 ~~~~~
 [Google] (www.google.com.tw) 
@@ -139,7 +139,7 @@ def hello_word():
 
 ---
 
-#### Create link (kramdown)
+### Create link (kramdown)
 
 ~~~~~
 [Google](www.google.com.tw) 
@@ -147,12 +147,13 @@ def hello_word():
 
 [Google](www.google.com.tw) 
 
+<div class="alert-info"> <p><img src="http://findicons.com/files/icons/1676/primo/48/warning_blue.png">No space between ] and ( </p> </div>
 
-<p class="bg-info"><img src="http://findicons.com/files/icons/1676/primo/48/warning_blue.png"></span>No space between ] and ( </p>
+<!-- <p class="bg-info"><img src="http://findicons.com/files/icons/1676/primo/48/warning_blue.png"></span>No space between ] and ( </p> -->
 
 ---
 
-#### Comment
+### Comment
 
 ~~~
 [comment]: <> (This is one line of comment.) 
@@ -182,4 +183,5 @@ Where the comment is `This is one line of comment.`
 7. [nice markdown cheetsheet @ jonschlinkert](https://gist.github.com/jonschlinkert/5854601)
 
 
+<br>
 Icons is provided by [FindIcons.com](http://findicons.com/icon/175920/warning_blue)
