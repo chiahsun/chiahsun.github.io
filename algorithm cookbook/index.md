@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Code Cookbook 
-text: Code for quick reference
+title: Algorithm Cookbook 
+text: Algorithm for quick reference
 ---
 
 ### Determine if a specific number is prime <small>[ideone](https://ideone.com/iB13l8)</small>
@@ -155,3 +155,169 @@ Case #1
 
 [(UVA 990 Diving for Gold)](https://uva.onlinejudge.org/external/9/990.pdf)
 
+
+### Longest Strictly Increasing / Decreasing Sequence <small>[ideone](https://ideone.com/XYtuU7)</small>
+
+~~~ cpp
+#include <cstdio>
+#include <vector>
+#include <algorithm>
+
+std::vector<int> A, lis, lis_pos, pos_prev;
+int last_pos;
+void print_prev(int pos) {
+    if (pos != pos_prev[pos])
+        print_prev(pos_prev[pos]);
+    printf("%d ", A[pos]);
+}
+
+int main() {
+    int x;
+    for (int pos = 0; scanf("%d", &x) == 1; ++pos) {
+        A.push_back(x);
+        pos_prev.push_back(pos);
+        if (lis.size() == 0 or lis.back() < x) {
+            lis.push_back(x);
+            lis_pos.push_back(pos);
+            if (lis.size() > 1)
+                pos_prev[pos] = lis_pos[lis.size()-2];
+            last_pos = pos;
+        } else {
+            auto it = std::lower_bound(lis.begin(), lis.end(), x);
+            size_t pos_replace = it - lis.begin();
+            lis[pos_replace] = x;
+            lis_pos[pos_replace] = pos;
+            if (pos_replace > 0)
+                pos_prev[pos] = lis_pos[pos_replace-1];
+            if (pos_replace == lis.size()-1)
+                last_pos = pos;
+        }
+    }
+
+    print_prev(last_pos);
+    printf("\n");
+
+    return 0;
+}
+
+~~~ 
+
+The above code computes the LIS and prints the last longest stricly increasing sequence.
+
+Input
+
+~~~
+8 10 4 13 16 5 3 3 1 13 18 10 2 8 17
+~~~
+
+Output 
+
+~~~
+8 10 13 16 17 
+~~~
+
+#### Online judge
+
+[(UVA 481 What Goes Up, medium)](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=422)
+[(UVA 11456 Trainsorting, medium)](https://uva.onlinejudge.org/external/114/11456.pdf)
+
+### Longest Common Subsequence <small>[ideone](http://ideone.com/KikDRt)</small>
+
+~~~ cpp
+#include <cstdio>
+#include <cstring>
+#include <utility>
+
+const int MAX_LENGTH = 100;
+
+int A[MAX_LENGTH], B[MAX_LENGTH];
+int lis[MAX_LENGTH][MAX_LENGTH];
+std::pair<int, int> lis_prev[MAX_LENGTH][MAX_LENGTH];
+
+void print_longest_common_subsequence(int i, int k) {
+    if (i != 0 and k != 0) {
+        const auto & pr = lis_prev[i][k];
+        print_longest_common_subsequence(pr.first, pr.second);
+        if (pr.first == i-1 and pr.second == k-1)
+            printf("%d ", A[pr.first]);
+    }
+}
+
+int main() {
+    int na, nb;
+    while (scanf("%d", &na) == 1) {
+        for (int i = 0; i < na; ++i) scanf("%d", A+i);
+        scanf("%d", &nb);
+        for (int i = 0; i < nb; ++i) scanf("%d", B+i);
+        memset(lis, 0, sizeof(lis));
+
+        for (int i = 0; i < na; ++i)
+            for (int k = 0; k < nb; ++k) {
+                if (A[i] == B[k]) {
+                    lis[i+1][k+1] = lis[i][k] + 1;
+                    lis_prev[i+1][k+1] = std::make_pair(i, k);
+                } else {
+                    if (lis[i+1][k] >= lis[i][k+1]) {
+                        lis[i+1][k+1] = lis[i+1][k];
+                        lis_prev[i+1][k+1] = std::make_pair(i+1, k);
+                    } else {
+                        lis[i+1][k+1] = lis[i][k+1];
+                        lis_prev[i+1][k+1] = std::make_pair(i, k+1);
+                    }
+                }
+            }
+        printf("lcc length : %d\n", lis[na][nb]);
+        print_longest_common_subsequence(na, nb);
+        printf("\n");
+
+    }
+    return 0;
+}
+
+~~~ 
+
+Input
+
+~~~
+8
+1 3 2 4 3 5 4 6
+4
+3 4 5 6
+~~~
+
+Output 
+
+~~~
+lcc length : 4
+3 4 5 6 
+~~~
+
+#### Online judge
+
+[(UVA 531 Compromise, elementary)](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=472)
+
+
+
+{% comment %}
+
+### Title <small>[ideone]()</small>
+
+~~~ cpp
+~~~ 
+
+Input
+
+~~~
+~~~
+
+Output 
+
+~~~
+~~~
+
+#### Online judge
+
+[(UVA )]()
+
+
+{% endcomment %}

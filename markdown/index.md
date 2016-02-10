@@ -105,9 +105,9 @@ def hello_word():
 
 ### Display image
 
-```
+~~~
 ![Image on Wiki]  (https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg)
-```
+~~~
 
 
 ![Image on Wiki] (https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg)
@@ -131,10 +131,10 @@ def hello_word():
 ### Create link (markdown)
 
 ~~~~~
-[Google] (www.google.com.tw) 
+[Google] (https://www.google.com)
 ~~~~~
 
-[Google] (www.google.com.tw) 
+[Google] (https://www.google.com)
 
 
 ---
@@ -142,14 +142,29 @@ def hello_word():
 ### Create link (kramdown)
 
 ~~~~~
-[Google](www.google.com.tw) 
+[Google](https://www.google.com)
 ~~~~~
 
-[Google](www.google.com.tw) 
+[Google](https://www.google.com)
 
 <div class="alert-info"> <p><img src="http://findicons.com/files/icons/1676/primo/48/warning_blue.png">No space between ] and ( </p> </div>
 
 <!-- <p class="bg-info"><img src="http://findicons.com/files/icons/1676/primo/48/warning_blue.png"></span>No space between ] and ( </p> -->
+
+
+---
+
+### Create Reference link
+
+~~~
+[Google][Google link]
+
+[Google link]: https://www.google.com
+~~~
+
+[Google][Google link]
+
+[Google link]: https://www.google.com
 
 ---
 
