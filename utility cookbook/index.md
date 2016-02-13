@@ -4,6 +4,14 @@ title: Utility Cookbook
 text: utility scripts for quick reference
 ---
 
+# Brew
+
+[How to remove outdated installed versions of homebrew bacjages](http://superuser.com/questions/975701/how-can-i-remove-outdated-installed-versions-of-homebrew-packages)
+
+~~~
+brew cleanup
+~~~
+
 ## Python timeit script to compare performance of two executables
 
 ~~~ python

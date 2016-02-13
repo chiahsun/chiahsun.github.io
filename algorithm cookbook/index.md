@@ -4,6 +4,58 @@ title: Algorithm Cookbook
 text: Algorithm for quick reference
 ---
 
+### Get interval sum <small>[ideone](https://ideone.com/czSP43)</small>
+
+~~~ cpp
+#include <cstdio>
+const int SIZE = 100;
+int A[SIZE];
+int prefix_sum[SIZE];
+
+int main() {
+    int N;
+    scanf("%d", &N);
+    prefix_sum[0] = 0;
+    for (int i = 0; i < N; ++i) {
+        scanf("%d", A+i);
+        prefix_sum[i+1] = prefix_sum[i] + A[i];
+    }
+
+    int begin, end;
+    while (scanf("%d%d", &begin, &end) == 2) {
+        for (int i = begin; i < end; ++i)
+            printf("%d ", A[i]);
+        printf("-> sum = %d\n", prefix_sum[end]-prefix_sum[begin]);
+    }
+
+    return 0;
+}
+~~~ 
+
+Input
+
+~~~
+10
+1 2 3 4 5 6 7 8 9 10
+0 1
+1 3
+2 4
+5 8
+9 10
+~~~
+
+Output
+
+~~~
+1 -> sum = 1
+2 3 -> sum = 5
+3 4 -> sum = 7
+6 7 8 -> sum = 21
+10 -> sum = 10
+~~~
+
+---
+
 ### Determine if a specific number is prime <small>[ideone](https://ideone.com/iB13l8)</small>
 
 ~~~ cpp
@@ -156,7 +208,7 @@ Case #1
 [(UVA 990 Diving for Gold)](https://uva.onlinejudge.org/external/9/990.pdf)
 
 
-### Longest Strictly Increasing / Decreasing Sequence <small>[ideone](https://ideone.com/XYtuU7)</small>
+### Longest Strictly Increasing / Decreasing Subsequence <small>[ideone](https://ideone.com/XYtuU7)</small>
 
 ~~~ cpp
 #include <cstdio>
