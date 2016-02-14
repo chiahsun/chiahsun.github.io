@@ -10,25 +10,43 @@ There is a steep learning curve for _vim_.
 
 However, once you are killed at it, you can code fast with ease.
 
-## vim cheetsheet
+---
 
-TODO
+# Vim Cheetsheet
 
-## vim plugins cheetsheet
+#### [Show vim default key bindings](http://stackoverflow.com/questions/2483849/detect-if-a-key-is-bound-to-something-in-vim)
 
-[emmet cheetsheet @ emmet.io](http://docs.emmet.io/cheat-sheet/)
+~~~
+:help index 
+~~~
 
-# vim plugins
+---
+
+# Vim plugins
 
 [10 Must have vim plugins](http://www.openfoundry.org/en/tech-column/2244--vim-plugin)
 
 
-## [Vundle](https://github.com/VundleVim/Vundle.vim/blob/v0.10.2/doc/vundle.txt#L234-L254)
+---
+
+## [Vundle](https://github.com/VundleVim/Vundle.vim/blob/v0.10.2/doc/vundle.txt#L234-L254) <small>Vim plugin manager</small>
 
 First, install a vim plugin manager. I use **Vundle**.
 
 ---
 
+## [YouCompletMe](https://github.com/Valloric/YouCompleteMe) <small>A powerful auto completion plugin, especially for C-familty support. </small>
+
+#### How to map the YCM fixit key?
+
+The following code in `.vimrc' would map the FixIt command to <kbd>, f</kbd> where my leader key is <kbd>,</kbd>
+
+~~~
+let mapleader=","
+map <leader>f :YcmCompleter FixIt<CR>
+~~~
+
+---
 
 ## [UltiSnipt.vim](https://github.com/SirVer/ultisnips)
 
@@ -116,7 +134,7 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 
 #### 2. How to swap between two split windows?
 
-<kbd>ctrl+w+r</kbd>
+<kbd>ctrl + w + r</kbd>
 
 
 ---

@@ -373,3 +373,25 @@ Output
 
 
 {% endcomment %}
+
+---
+
+## Challenges
+
+<table class="table table-bordered table-hover">
+    <thread>
+            <th>Dynamic programming</th>
+            <th>Difficulty</th>
+            <th>Description</th>
+            <th>Solution</th>
+    </thread>
+    <tbody>
+        <tr class="info">
+            <td><a href="https://algospot.com/judge/problem/read/QUANTIZE">Algospot QUANTIZE</a></td>
+            <td>hard</td>
+            <td>Good problem to test a problem can be solved by its sub-problem</td>
+            <td><a href="https://github.com/chiahsun/problem_solving/tree/master/Algospot/QUANTIZE/solve1.cc">github</a></td>
+        </tr>
+    </tbody>
+</table>
+
