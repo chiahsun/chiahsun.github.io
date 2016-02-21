@@ -127,6 +127,8 @@ It would be the name used on the navigation bar and title display.
 * [How to create page @ jekyllrg](http://jekyllrb.com/docs/pages/)
 
 
+## [Rouge](https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers) <small>syntax highlighter</small>
+
 ## [Liguid for Designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) <small>the engine behind Jekyll</small>
 
 ### Reference

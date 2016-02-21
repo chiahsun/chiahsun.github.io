@@ -4,9 +4,56 @@ title: Utility Cookbook
 text: utility scripts for quick reference
 ---
 
+# Makefile
+
+~~~ make
+BINS = $(patsubst %.cc, %.out, $(wildcard *.cc))
+OBJS = $(patsubst %.cc, %.o, $(wildcard *.cc))
+TARGET = $(BINS) $(OBJS)
+
+CFLAGS = -std=c++11
+
+.PHONY: debug all clean
+
+
+all : $(TARGET)
+
+debug: CFLAGS += -g
+debug: $(TARGET)
+
+.cc.o :
+    clang++ -c $< -o $@ $(CFLAGS)
+
+%.out : $(OBJS)
+    clang++ -o $@ $^ $(CFLAGS)
+
+clean:
+    rm -rf $(TARGET)
+~~~
+
+Note the preceding spaces is not spaces but a single <kbd>tab</kbd>.
+
+Debug build
+
+~~~
+make debug
+~~~
+
+Release build
+
+~~~
+make
+~~~
+
+
+#### Reference
+
+* [debug and release build @ stackoverflow](http://stackoverflow.com/questions/1079832/how-can-i-configure-my-makefile-for-debug-and-release-builds)
+
+
 # Brew
 
-[How to remove outdated installed versions of homebrew bacjages](http://superuser.com/questions/975701/how-can-i-remove-outdated-installed-versions-of-homebrew-packages)
+[How to remove outdated installed versions of homebrew backages](http://superuser.com/questions/975701/how-can-i-remove-outdated-installed-versions-of-homebrew-packages)
 
 ~~~
 brew cleanup

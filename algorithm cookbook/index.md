@@ -395,3 +395,26 @@ Output
     </tbody>
 </table>
 
+<table class="table table-bordered table-hover">
+    <thread>
+            <th>Combinatorial search</th>
+            <th>Difficulty</th>
+            <th>Description</th>
+            <th>Solution</th>
+    </thread>
+    <tbody>
+        <tr class="info">
+            <td><a href="http://poj.org/problem?id=2676">POJ 2676 - Sudoku</a></td>
+            <td>simple</td>
+            <td>Constraint satisfaction problem, learn how to do constraint propogation efficiently</td>
+            <td><a href="https://github.com/chiahsun/problem_solving/blob/master/POJ/2676%20-%20Sudoku/solve1.cc">github</a></td>
+        </tr>
+        <tr class="info">
+            <td><a href="https://algospot.com/judge/problem/read/KAKURO2">Algospot KAKURO2</a></td>
+            <td>intermediate</td>
+            <td>Constraint satisfaction problem, learn how to do constraint propogation efficiently</td>
+            <td><a href="https://github.com/chiahsun/problem_solving/blob/master/Algospot/KAKURO2/solve1.cc">github</a></td>
+        </tr>
+    </tbody>
+</table>
+

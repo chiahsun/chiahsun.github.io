@@ -46,6 +46,34 @@ let mapleader=","
 map <leader>f :YcmCompleter FixIt<CR>
 ~~~
 
+#### Use YVM to jump to definition
+
+Use <kbd>, j d</kbd> to jump to definition.
+
+~~~
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+~~~
+
+
+
+#### My .ycm\_extra\_conf.py (MAC OSX)
+
+Without corrent settings, it cannot find the standard library and perform auto completion. (e.g. unordered_map)
+
+~~~
+flags = [
+    '-Wall',
+    '-std=c++11',
+    '-stdlib=libc++',
+    '-x',
+    'c++',
+    '-I',
+    '.',
+    '-isystem',
+    '/Library/Developer/CommandLineTools/usr/include/c++/v1'
+]
+~~~
+
 ---
 
 ## [UltiSnipt.vim](https://github.com/SirVer/ultisnips)
@@ -90,7 +118,7 @@ Below is the animation from official site:
 
 You can change the expand key by put the following line in your _.vimrc_. 
 
-The following code maps the expand key to <kbd>ctrl+e</kbd>
+The following code maps the expand key to <kbd>ctrl + e</kbd>
 
 ~~~
 let g:user_emmet_expandabbr_key = '<c-e>'

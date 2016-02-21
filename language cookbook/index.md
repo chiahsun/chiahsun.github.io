@@ -4,6 +4,68 @@ title: Lanaguage cookbook
 text: Quick reference for implementations in different programming languages
 ---
 
+## Remove If
+
+[ideone](https://ideone.com/dHjA38)
+
+~~~cpp
+#include <cstdio>
+#include <vector>
+#include <algorithm>
+
+void print_vec(const char * msg = 0, const std::vector<int> & v = std::vector<int>()) {
+    printf("%s", msg ? msg : "");
+    for (auto x : v)
+        printf(" %d", x);
+    printf("\n");
+}
+
+template <class _Container, class _Predicate>
+void remove_if_and_resize(_Container & c, _Predicate p) {
+    auto new_end = std::remove_if(c.begin(), c.end(), p);
+    c.erase(new_end, c.end());    
+}
+
+int main() {
+    {
+    int value = 3;
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    print_vec("Before :", v);
+    auto new_end = std::remove_if(v.begin(), v.end(), [value] (int x) { return x < value; });
+    print_vec("After remove_if :", v);
+    v.erase(new_end, v.end());
+    print_vec("After erase:", v);
+    }
+
+    {
+    int value = 2;
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    print_vec("Before :", v);
+    remove_if_and_resize(v, [value] (int x) { return x > value; });
+    print_vec("After remove_if_and_resize :", v);
+    }
+    return 0;
+}
+
+~~~
+
+Output
+
+~~~
+Before : 1 2 3 4 5
+After remove_if : 3 4 5 4 5
+After erase: 3 4 5
+Before : 1 2 3 4 5
+After remove_if_and_resize : 1 2
+~~~
+
+#### Reference
+
+* [std remove if @ stackoverflow](http://stackoverflow.com/questions/4478636/stdremove-if-lambda-not-removing-anything-from-the-collection)
+
+* [lambda function @ cppreference](http://en.cppreference.com/w/cpp/language/lambda)
+
+
 ## Bit Manipulation
 
 [ideone](http://ideone.com/YP7rSS)
