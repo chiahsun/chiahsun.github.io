@@ -107,6 +107,133 @@ Primes less than 100 : 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 7
 
 ---
 
+### Breadth-first search <small>[ideone](http://ideone.com/XWH5gY)</small>
+
+![Sample graph @ wiki](https://upload.wikimedia.org/wikipedia/commons/5/5c/Scc.png) (Graph from [wiki](https://www.wikiwand.com/en/Strongly_connected_component))
+
+~~~cpp
+#include <cstdio>
+#include <cstring>
+#include <queue>
+#include <vector>
+#include <algorithm>
+
+const int M = 50;
+char nodes[M][30];
+
+int pos_node = 0;
+std::vector<int> adjacent_nodes[M];
+
+void init() {
+    pos_node = 0;
+    for (int i = 0; i < M; ++i) adjacent_nodes[i].clear();
+}
+
+int get_node() {
+    char name[30];
+    scanf("%s", name);
+    for (int i = 0; i < pos_node; ++i)
+        if (!strcmp(name, nodes[i]))
+            return i;
+    strcpy(nodes[pos_node++], name);
+    return pos_node-1;
+}
+
+bool bfs(int source, int sink, std::vector<int> & path) {
+    int enqueued[M], prev[M], distance[M];
+    memset(enqueued, false, sizeof(enqueued));
+    memset(distance, 0, sizeof(distance));
+
+    std::queue<int> queue;
+    queue.push(source); enqueued[source] = true; prev[source] = source; distance[source] = 0;
+    while (not queue.empty()) {
+        int cur = queue.front(); queue.pop();
+        if (cur == sink) break;
+        for (auto next : adjacent_nodes[cur]) {
+            if (not enqueued[next]) {
+                queue.push(next); enqueued[next] = true; prev[next] = cur; distance[next] = distance[cur]+1; 
+            }     
+        }
+    }
+
+    path.clear();
+    if (not enqueued[sink]) return 0;
+
+    int now = sink;
+    while (prev[now] != now) {
+        path.push_back(now);
+        now = prev[now];
+    }
+    path.push_back(source);
+    std::reverse(path.begin(), path.end());
+    return true;
+}
+
+void print_path(const std::vector<int> & path) {
+    for (int i = 0; i < path.size(); ++i) {
+        printf("%s%s", i != 0 ? " -> " : "", nodes[path[i]]);
+    }
+    printf("\n");
+}
+
+int main() {
+    init();
+
+    int n_node;
+    scanf("%d", &n_node);
+
+    for (int i = 0; i < n_node; ++i) {
+        int from = get_node();
+        int n_next;
+        scanf("%d", &n_next);
+        while (n_next--) {
+            int to = get_node();
+            adjacent_nodes[from].push_back(to);
+        }
+    }
+    int n_query;
+    scanf("%d", &n_query);
+    while (n_query--) {
+        std::vector<int> path;
+        int from = get_node(), to = get_node();
+        if (bfs(from, to, path)) 
+            print_path(path);
+        else
+            printf("There is no path from %s -> %s\n", nodes[from], nodes[to]);
+    }
+    
+    return 0;
+}
+~~~
+
+Input
+
+~~~
+8
+a 1 b
+b 3 c e f
+c 2 d g
+d 2 c h
+e 2 a f
+f 1 g
+g 1 f
+h 2 d g
+3
+a b
+b h
+d e
+~~~
+
+Output
+
+~~~
+a -> b
+b -> c -> d -> h
+There is no path from d -> e
+~~~
+
+---
+
 ### 0-1 Knapsack Problem <small>[ideone](https://ideone.com/5XZhWQ)</small>
 
 ~~~cpp
@@ -418,3 +545,62 @@ Output
     </tbody>
 </table>
 
+<table class="table table-bordered table-hover">
+    <thread>
+            <th>Maximum flow</th>
+            <th>Difficulty</th>
+            <th>Description</th>
+            <th>Solution</th>
+    </thread>
+    <tbody>
+        <tr class="info">
+            <td><a href="https://uva.onlinejudge.org/external/8/820.pdf">UVA 820 - Internet Bandwidth</a></td>
+            <td>elementary</td>
+            <td>undirected graph</td>
+            <td><a href="https://github.com/chiahsun/problem_solving/tree/master/UVA/820%20-%20Internet%20Bandwidth">github</a></td>
+        </tr>
+        <tr class="info">
+            <td><a href="https://uva.onlinejudge.org/external/103/10330.pdf">UVA 10330 - Power Transmission</a></td>
+            <td>simple</td>
+            <td>directed graph, capacity constraints on node</td>
+            <td><a href="https://github.com/chiahsun/problem_solving/blob/master/UVA/10330%20-%20Power%20Transmission/solve1.cc">github</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table class="table table-bordered table-hover">
+    <thread>
+            <th>Breadth-first search</th>
+            <th>Difficulty</th>
+            <th>Description</th>
+            <th>Solution</th>
+    </thread>
+    <tbody>
+        <tr class="info">
+            <td><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=250">314 - Robot</a></td>
+            <td>intermediate</td>
+            <td>Record visited path not only x and y, but also orientation </td>
+            <td><a href="https://github.com/chiahsun/problem_solving/blob/master/UVA/314%20-%20Robot/solve1.cc">github</a></td>
+        </tr>
+    </tbody>
+</table>
+
+{% comment %}
+<table class="table table-bordered table-hover">
+    <thread>
+            <th></th>
+            <th>Difficulty</th>
+            <th>Description</th>
+            <th>Solution</th>
+    </thread>
+    <tbody>
+        <tr class="info">
+            <td><a href=""></a></td>
+            <td></td>
+            <td></td>
+            <td><a href="">github</a></td>
+        </tr>
+    </tbody>
+</table>
+{% endcomment %}

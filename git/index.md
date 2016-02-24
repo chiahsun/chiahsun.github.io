@@ -25,7 +25,7 @@ git commit --amend
 
 or
 
-~~
+~~~
 git commit --amend -m "New message"
-~~
+~~~
 

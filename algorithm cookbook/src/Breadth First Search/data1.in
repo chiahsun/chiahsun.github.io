@@ -1,0 +1,13 @@
+8
+a 1 b
+b 3 c e f
+c 2 d g
+d 2 c h
+e 2 a f
+f 1 g
+g 1 f
+h 2 d g
+3
+a b
+b h
+d e
