@@ -37,4 +37,5 @@ exclude:
     - ignore
     - code cookbook/src
     - algorithm cookbook/src
-    - language cookbook/src 
+    - language cookbook/src
+    - _posts/src
